@@ -1,0 +1,89 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  padding: 0;
+  margin: 0;
+}
+body {
+  background-color: white;
+}
+
+*,
+::before,
+::after {
+  box-sizing: border-box;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.card {
+  display: block;
+  position: relative;
+
+  width: 200px;
+  height: 120px;
+  background-color: #d4e5ff;
+  border-radius: 10px;
+  padding: 0 4px;
+  margin: 12px;
+
+  text-decoration: none;
+  z-index: 0;
+  overflow: hidden;
+
+  &:before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: -16px;
+    right: -16px;
+    background: #ccd9ff;
+
+    height: 32px;
+    width: 32px;
+    border-radius: 32px;
+    transform: scale(0);
+    transform-origin: 50% 50%;
+    transition: transform 0.5s ease-out;
+  }
+
+  &:hover:before {
+    transform: scale(21);
+  }
+}
+
+.card:hover {
+  p {
+    transition: all 0.3s ease-out;
+    color: rgba(255, 255, 255, 0.8);
+  }
+  h3 {
+    transition: all 0.5s ease-out;
+    color: #ffffff;
+  }
+}
+.background-gradient {
+  background: linear-gradient(45deg, #ffffff 0%, #e0f7fa 100%);
+}
+/* baner background image */
+.bannerBackgroundImage {
+  background-image: url("../asserts/Background.svg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.patenBackgroundImage {
+  background-image: url("../asserts/pattern.svg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
