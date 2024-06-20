@@ -71,7 +71,12 @@ export default function Header() {
               <h1 className="text-gray-200 ">Aidroo for Business</h1>
             </div>
             <div className="flex gap-8 col-span-1 relative">
-              <Button className="  bg-white   ">Login</Button>
+              <button
+                className={`relative flex py-2 w-full px-4  bg-white rounded-md items-center justify-center overflow-hidden    text-gray-700 border border-[#1aa2e1]   transition-all before:absolute before:h-0 before:w-0 before:rounded-full before:bg-[#1aa2e1] before:text-blue-600 hover:text-white before:duration-500 before:ease-out hover:shadow-orange-600 hover:before:h-56 hover:before:w-56`}
+              >
+                <span className="relative z-50"> Login</span>
+              </button>
+
               <Button className=" bg-white    ">Signup</Button>
             </div>
           </div>
