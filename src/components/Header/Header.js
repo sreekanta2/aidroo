@@ -70,8 +70,8 @@ export default function Header() {
             <div className="col-span-2 mx-auto">
               <h1 className="text-gray-200 ">Aidroo for Business</h1>
             </div>
-            <div className="flex gap-8 col-span-1">
-              <Button className=" bg-white   ">Login</Button>
+            <div className="flex gap-8 col-span-1 relative">
+              <Button className="  bg-white   ">Login</Button>
               <Button className=" bg-white    ">Signup</Button>
             </div>
           </div>
