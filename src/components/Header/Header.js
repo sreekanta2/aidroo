@@ -8,6 +8,8 @@ import pageIcon from "@/asserts/mobile-icons/page_icon.svg";
 import businessIcon from "@/asserts/mobile-icons/pricing-plan.svg";
 import helpIcon from "@/asserts/mobile-icons/support.svg";
 import search from "@/asserts/search.svg";
+import messageIcon from "@/public/icons/messages.svg";
+import notificationIcon from "@/public/icons/notifications.svg";
 import Image from "next/image";
 
 import Link from "next/link";
@@ -15,12 +17,17 @@ import Input from "../../ui/Input";
 
 import { useEffect, useState } from "react";
 
+import { useAuth } from "@/hooks/useAuth.js";
+
 import Button from "@/ui/Button";
 import IconImage from "../IconImage/IconImage";
 export default function Header() {
   const [searchText, setSearchText] = useState("");
   const [open, setOpen] = useState(false);
   const [sidebarOpen, setSidebarOpen] = useState(false);
+
+  const { currentUser, login, logout } = useAuth();
+  console.log(currentUser);
 
   const handleInputChange = (event) => {
     setSearchText(event.target.value);
@@ -34,7 +41,7 @@ export default function Header() {
   const inputFieldHowHide = open ? "block" : "hidden";
   return (
     <>
-      <div className="bg-primary-A200 sticky top-0 z-20 ">
+      <div className="bg-[#002A64] sticky top-0 z-20 ">
         {/* desktop view */}
         <div className="hidden lg:block">
           <div className="  grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 min-h-20  items-center justify-center max-w-[1260px] mx-auto ">
@@ -59,10 +66,10 @@ export default function Header() {
                   className=" gap-2 text-gray-600 font-bold rounded-xl border w-full outline-none"
                 />
 
-                <div className=" flex items-center justify-center  bg-primary-A100 p-1 rounded-md   cursor-pointer w-[3.7rem] ">
+                <div className=" flex items-center justify-center  bg-primary p-1 rounded-md   cursor-pointer w-[3.7rem] ">
                   <IconImage src={filter} alt="Icon 1" size={40} />
                 </div>
-                <div className=" flex items-center justify-center  bg-primary-A100 p-1 rounded-md   cursor-pointer w-[4rem] ">
+                <div className=" flex items-center justify-center  bg-primary p-1 rounded-md   cursor-pointer w-[4rem] ">
                   <IconImage src={search} alt="Icon 1" size={32} />
                 </div>
               </form>
@@ -70,14 +77,22 @@ export default function Header() {
             <div className="col-span-2 mx-auto">
               <h1 className="text-gray-200 ">Aidroo for Business</h1>
             </div>
-            <div className="flex gap-8 col-span-1 relative">
-              <button
-                className={`relative flex py-2 w-full px-4  bg-white rounded-md items-center justify-center overflow-hidden    text-gray-700 border border-[#1aa2e1]   transition-all before:absolute before:h-0 before:w-0 before:rounded-full before:bg-[#1aa2e1] before:text-blue-600 hover:text-white before:duration-500 before:ease-out hover:shadow-orange-600 hover:before:h-56 hover:before:w-56`}
-              >
-                <span className="relative z-50"> Login</span>
-              </button>
-
-              <Button className=" bg-white    ">Signup</Button>
+            <div className="flex gap-8 col-span-1 ">
+              {!currentUser ? (
+                <>
+                  <Button className=" bg-white    ">Login</Button>
+                  <Button className=" bg-white    ">Signup</Button>
+                </>
+              ) : (
+                <>
+                  <IconImage src={messageIcon} size={32} alt="message icon" />
+                  <IconImage
+                    src={notificationIcon}
+                    size={28}
+                    alt="message icon"
+                  />
+                </>
+              )}
             </div>
           </div>
         </div>
