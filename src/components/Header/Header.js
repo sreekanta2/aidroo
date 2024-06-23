@@ -70,14 +70,14 @@ export default function Header() {
                   type="text"
                   name="search"
                   placeholder="Search"
-                  className="bg-white dark:bg-[#0f172a] h-12"
+                  className="bg-white dark:bg-[#0f172a] h-10"
                 />
 
                 <div className=" flex items-center justify-center  bg-primary_color p-1 rounded-md   cursor-pointer w-[3.7rem] ">
-                  <IconImage src={filter} alt="Icon 1" size={40} />
+                  <IconImage src={filter} alt="Icon 1" size={30} />
                 </div>
                 <div className=" flex items-center justify-center  bg-primary_color p-1 rounded-md   cursor-pointer w-[4rem] ">
-                  <IconImage src={search} alt="Icon 1" size={32} />
+                  <IconImage src={search} alt="Icon 1" size={30} />
                 </div>
               </form>
             </div>
