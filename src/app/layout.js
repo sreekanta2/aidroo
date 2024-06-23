@@ -1,5 +1,6 @@
 import Header from "@/components/Header/Header";
 import Footer from "@/components/footer/Footer";
+import { ThemeProvider } from "@/components/theme-provider";
 import { Inter } from "next/font/google";
 import "./globals.css";
 
@@ -12,13 +13,20 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" className="light">
       <body className={inter.className}>
-        <main className="w-full ">
-          <Header />
-          {children}
-          <Footer />
-        </main>
+        <ThemeProvider
+          attribute="class"
+          enableSystem
+          themes={["light", "dark"]}
+          disableTransitionOnChange
+        >
+          <main className="w-full ">
+            <Header />
+            {children}
+            <Footer />
+          </main>
+        </ThemeProvider>
       </body>
     </html>
   );

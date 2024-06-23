@@ -1,5 +1,6 @@
 "use client";
-import { categories } from "@/utils/constant";
+
+import { categories } from "@/constant";
 import { Poppins } from "next/font/google";
 import { useEffect, useState } from "react";
 import CategoryItem from "./CategoryItem/CategoryItem";
@@ -24,10 +25,12 @@ export default function Category() {
   const [itemsPerSlide, setItemsPerSlide] = useState(8);
 
   const updateItemsPerSlide = () => {
-    if (window.innerWidth >= 768) {
+    if (window.innerWidth >= 1008) {
       setItemsPerSlide(8);
-    } else {
+    } else if (window.innerWidth > 870) {
       setItemsPerSlide(4);
+    } else if (window.innerWidth < 770) {
+      setItemsPerSlide(2);
     }
   };
 
@@ -56,34 +59,38 @@ export default function Category() {
   const prvDisabledColor =
     currentSlide === 0
       ? "bg-gray-600 ring-0 ring-offset-0"
-      : "hover:bg-primary-A100 ";
+      : "hover:bg-primary_color dark:hover:bg-[#0f172a] ";
 
   const nextDisabledColor =
     totalSlides - 1 === currentSlide
       ? "bg-gray-600 ring-0 ring-offset-0"
-      : "hover:bg-primary-A100 ";
+      : "hover:bg-primary_color dark:hover:bg-[#0f172a]";
 
   return (
-    <div className="bg-[#CCD9FF] py-20">
+    <div className="bg-light dark:bg-dark py-20">
       <div className="max-w-[1360px] mx-auto sm:px-8 flex items-center flex-col space-y-12">
         <h1
           className={`text-center text-3xl text-gray-700 font-semibold   ${poppins.variable}`}
         >
           Browse Categories
         </h1>
-        <div className="w-fit px-14 relative mx-8">
-          <div className=" w-fit lg:w-[900px]  mx-auto  overflow-hidden">
+        <div className=" px-14 relative mx-8">
+          <div className=" w-fit lg:max-w-[900px]  flex justify-center overflow-hidden">
             <div
-              className="flex transition-transform duration-500"
+              className="flex w-full transition-transform duration-500 "
               style={{ transform: `translateX(-${currentSlide * 100}%)` }}
             >
               {chunkedCategories.map((categoryChunk, index) => (
                 <div
                   key={index}
-                  className={`flex-shrink-0 w-full grid   ${
+                  className={`flex-shrink-0 w-full grid  max-gap-2 ${
                     itemsPerSlide === 8
-                      ? "grid-cols-2 md:grid-cols-4"
-                      : "grid-cols-2"
+                      ? "grid-cols-1 sm:grid-cols-3   md:grid-cols-4  "
+                      : itemsPerSlide === 4
+                      ? "grid-cols-2  "
+                      : itemsPerSlide === 2
+                      ? "grid-cols-1"
+                      : ""
                   }`}
                 >
                   {categoryChunk.map((category) => (
@@ -92,23 +99,23 @@ export default function Category() {
                 </div>
               ))}
             </div>
+            <button
+              disabled={currentSlide === 0}
+              className={`absolute left-0 top-1/2 transform -translate-y-1/2 bg-[#CCD9FF] ${prvDisabledColor}    w-8 h-8 rounded-full ring  ring-offset-2 flex justify-center items-center
+              overflow-hidden    text-4xl`}
+              onClick={prevSlide}
+            >
+              ‹
+            </button>
+            <button
+              disabled={totalSlides - 1 === currentSlide}
+              className={`absolute right-0 top-1/2 transform -translate-y-1/2 bg-[#CCD9FF]  ${nextDisabledColor}    w-8 h-8 rounded-full ring ring-offset-2 flex justify-center items-center
+              overflow-hidden    text-4xl`}
+              onClick={nextSlide}
+            >
+              ›
+            </button>
           </div>
-          <button
-            disabled={currentSlide === 0}
-            className={`absolute left-0 top-1/2 transform -translate-y-1/2 bg-[#CCD9FF] ${prvDisabledColor}    w-8 h-8 rounded-full ring  ring-offset-2 flex justify-center items-center
-              overflow-hidden    text-4xl`}
-            onClick={prevSlide}
-          >
-            ‹
-          </button>
-          <button
-            disabled={totalSlides - 1 === currentSlide}
-            className={`absolute right-0 top-1/2 transform -translate-y-1/2 bg-[#CCD9FF]  ${nextDisabledColor}    w-8 h-8 rounded-full ring ring-offset-2 flex justify-center items-center
-              overflow-hidden    text-4xl`}
-            onClick={nextSlide}
-          >
-            ›
-          </button>
         </div>
       </div>
     </div>

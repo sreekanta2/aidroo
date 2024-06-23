@@ -11,7 +11,7 @@ const Business = () => {
             Why <span className="text-[#05affe]">Aidroo</span> for your
             Business?
           </h1>
-          <p className="text-gray-600 mb-6">
+          <p className="  mb-6">
             Explore the popular listings around the world
           </p>
         </div>
@@ -29,7 +29,7 @@ const Business = () => {
               <h2 className="text-xl font-semibold text-[#42b2fc] ">
                 Enhanced Branding
               </h2>
-              <p className="text-gray-700 text-sm text-justify ">
+              <p className="  text-sm text-justify ">
                 Elevate your brand with Claimed, Verified, and Guaranteed
                 badges, along with verified badge reviews.
               </p>
@@ -39,7 +39,7 @@ const Business = () => {
               <h2 className="text-xl font-semibold text-[#42b2fc] ">
                 Targeted Leads
               </h2>
-              <p className="text-gray-700 text-sm text-justify ">
+              <p className="  text-sm text-justify ">
                 Engage with a highly relevant audience tailored to your niche,
                 driving qualified leads to your business.
               </p>
@@ -48,7 +48,7 @@ const Business = () => {
               <h2 className="text-xl font-semibold text-[#42b2fc] ">
                 Seamless Management
               </h2>
-              <p className="text-gray-700 text-sm  text-justify tracking-[.97px]">
+              <p className="  text-sm  text-justify tracking-[.97px]">
                 Aidroo simplifies directory management, offering tools to
                 update, monitor, and analyze listings efficiently.
               </p>

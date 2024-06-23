@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-export default function CategoryItem({ category }) {
+export default function ItemCard({ category }) {
   return (
     <Link
       className="slide_card bg-[#d4e5ff] dark:bg-[#0b1120] shadow-md min-w-[100px] h-[120px] before:bg-[#ccd9ff] dark:before:bg-[#0f172a] dark:border"

@@ -13,21 +13,27 @@ import notificationIcon from "@/public/icons/notifications.svg";
 import Image from "next/image";
 
 import Link from "next/link";
-import Input from "../../ui/Input";
 
 import { useEffect, useState } from "react";
 
 import { useAuth } from "@/hooks/useAuth.js";
 
-import Button from "@/ui/Button";
 import IconImage from "../IconImage/IconImage";
+import { ThemeToggle } from "../ThemeToggle";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "../ui/accordion";
+import { Button } from "../ui/button";
+import { Input } from "../ui/input";
 export default function Header() {
   const [searchText, setSearchText] = useState("");
   const [open, setOpen] = useState(false);
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   const { currentUser, login, logout } = useAuth();
-  console.log(currentUser);
 
   const handleInputChange = (event) => {
     setSearchText(event.target.value);
@@ -63,25 +69,26 @@ export default function Header() {
                   type="text"
                   name="search"
                   placeholder="Search"
-                  className=" gap-2 text-gray-600 font-bold rounded-xl border w-full outline-none"
+                  className="bg-white dark:bg-[#0f172a] h-12"
                 />
 
-                <div className=" flex items-center justify-center  bg-primary p-1 rounded-md   cursor-pointer w-[3.7rem] ">
+                <div className=" flex items-center justify-center  bg-primary_color p-1 rounded-md   cursor-pointer w-[3.7rem] ">
                   <IconImage src={filter} alt="Icon 1" size={40} />
                 </div>
-                <div className=" flex items-center justify-center  bg-primary p-1 rounded-md   cursor-pointer w-[4rem] ">
+                <div className=" flex items-center justify-center  bg-primary_color p-1 rounded-md   cursor-pointer w-[4rem] ">
                   <IconImage src={search} alt="Icon 1" size={32} />
                 </div>
               </form>
             </div>
-            <div className="col-span-2 mx-auto">
+            <div className="col-span-2 mx-auto flex justify-between items-center gap-10">
               <h1 className="text-gray-200 ">Aidroo for Business</h1>
+              <ThemeToggle />
             </div>
             <div className="flex gap-8 col-span-1 ">
               {!currentUser ? (
                 <>
-                  <Button className=" bg-white    ">Login</Button>
-                  <Button className=" bg-white    ">Signup</Button>
+                  <Button variant="primary">Login</Button>
+                  <Button variant="primary">Signup</Button>
                 </>
               ) : (
                 <>
@@ -161,7 +168,7 @@ export default function Header() {
         </div>
         {/* sidebar */}
         <div
-          className={`w-96 bg-white  fixed top-0  z-30   h-screen block lg:hidden  ${menuLinksPosition}  transform duration-500`}
+          className={`max-w-[300px] bg-white  fixed top-0  z-30   h-screen block lg:hidden  ${menuLinksPosition}  transform duration-500`}
         >
           <div>
             <div className="w-full  flex justify-center items-center h-24 bg-[#234261]">
@@ -170,7 +177,43 @@ export default function Header() {
               </Link>
             </div>
             {/* menu */}
-            <summary className="collapse-title text-xl font-medium border-b-2 ">
+
+            <Accordion
+              type="single"
+              collapsible
+              className="w-full px-8 space-y-4 mt-4"
+            >
+              <div className="flex items-center gap-4 border-b pb-4">
+                <IconImage src={category} size={24} alt="icon" />
+                <span>Categories</span>
+              </div>
+              <AccordionItem value="item-1">
+                <AccordionTrigger>
+                  <div className="flex items-center gap-4 no-underline  ">
+                    <IconImage src={pageIcon} size={24} alt="icon" />
+                    <span>Pages</span>
+                  </div>
+                </AccordionTrigger>
+                <AccordionContent className="px-10">
+                  <ul className="collapse-content space-y-2   ">
+                    <li> Terms of service</li>
+                    <li> Privacy Policy </li>
+                    <li> Events</li>
+                    <li>Blogs</li>
+                  </ul>
+                </AccordionContent>
+              </AccordionItem>
+              <div className="flex items-center gap-4 border-b pb-4 ">
+                <IconImage src={businessIcon} size={24} alt="icon" />
+                <span className=""> Business Pricing Plan</span>
+              </div>
+              <div className="flex items-center gap-4 collapse-content border-b pb-4 ">
+                <IconImage src={helpIcon} size={24} alt="icon" />
+                <span> Help and Support</span>
+              </div>
+            </Accordion>
+
+            {/* <summary className="collapse-title text-xl font-medium border-b-2 ">
               <div className="flex items-center gap-4">
                 <IconImage src={category} size={24} alt="icon" />
                 <span>Categories</span>
@@ -201,7 +244,7 @@ export default function Header() {
                 <IconImage src={helpIcon} size={24} alt="icon" />
                 <span> Help and Support</span>
               </div>
-            </summary>
+            </summary> */}
           </div>
         </div>
       </div>
