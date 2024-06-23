@@ -19,6 +19,7 @@ import { useEffect, useState } from "react";
 import { useAuth } from "@/hooks/useAuth.js";
 
 import IconImage from "../IconImage/IconImage";
+import ResponsiveImage from "../ResponsiveImage/ResponsiveImage";
 import { ThemeToggle } from "../ThemeToggle";
 import {
   Accordion,
@@ -106,42 +107,42 @@ export default function Header() {
 
         {/* mobile view */}
 
-        <div className="  block lg:hidden   space-y-4 ">
+        <div className="  block lg:hidden   space-y-4  z-50">
           <div className="mx-4">
-            <div className="flex w-full    justify-between  h-24 items-center text-lg text-gray-700 ">
-              <div className=" ">
-                <Link href="/" className=" ">
-                  <Image
+            <div className="flex w-full    justify-between  h-24 items-center text-lg  ">
+              <div className=" w-24 ">
+                <Link href="/">
+                  <ResponsiveImage
                     src={logo}
                     alt="aidroo logo image"
-                    width={100}
-                    height={100}
+                    width={500}
+                    height={300}
                   />
                 </Link>
               </div>
 
               <div className="flex gap-4 items-center">
                 <div
-                  className="w-10 h-10 relative bg-primary-A100 rounded-md cursor-pointer"
+                  className="w-9 h-9 relative bg-primary_color rounded-md cursor-pointer p-1"
                   onClick={() => setOpen(!open)}
                 >
-                  <Image
+                  <ResponsiveImage
                     src={search}
                     alt="Icon 1"
-                    layout="fill"
-                    className="object-contain absolute  p-1"
+                    width={500}
+                    height={300}
                   />
                 </div>
-
+                <ThemeToggle />
                 <div
                   className="w-8 h-8 relative  ring rounded-md cursor-pointer"
                   onClick={() => setSidebarOpen(!sidebarOpen)}
                 >
-                  <Image
+                  <ResponsiveImage
                     src={!sidebarOpen ? humber : close}
+                    width={500}
+                    height={300}
                     alt="Icon 1"
-                    layout="fill"
-                    className="object-contain absolute   "
                   />
                 </div>
               </div>
@@ -154,13 +155,13 @@ export default function Header() {
                 type="text"
                 name="search"
                 placeholder="Search"
-                className=" gap-2 text-gray-600 font-bold rounded-xl border max-w-96 w-full outline-none"
+                className="bg-white dark:bg-[#0f172a]"
               />
 
-              <div className=" flex items-center justify-center  bg-primary-A100 p-1 rounded-md   cursor-pointer w-[3.2rem] ">
+              <div className=" flex items-center justify-center  bg-primary_color p-1 rounded-md   cursor-pointer w-[3.2rem] ">
                 <IconImage src={filter} alt="Icon 1" size={30} />
               </div>
-              <div className=" flex items-center justify-center  bg-primary-A100 p-1 rounded-md   cursor-pointer w-[3.2rem] ">
+              <div className=" flex items-center justify-center  bg-primary_color p-1 rounded-md   cursor-pointer w-[3.2rem] ">
                 <IconImage src={search} alt="Icon 1" size={24} />
               </div>
             </form>
@@ -168,13 +169,20 @@ export default function Header() {
         </div>
         {/* sidebar */}
         <div
-          className={`max-w-[300px] bg-white  fixed top-0  z-30   h-screen block lg:hidden  ${menuLinksPosition}  transform duration-500`}
+          className={`max-w-[300px] bg-white dark:bg-[#0f172a]  fixed top-0  z-30   h-screen block lg:hidden  ${menuLinksPosition}  transform duration-500`}
         >
           <div>
             <div className="w-full  flex justify-center items-center h-24 bg-[#234261]">
-              <Link href="/">
-                <Image src={logo} alt="aidroo logo image" className="h-10 " />
-              </Link>
+              <div className="w-32">
+                <Link href="/">
+                  <ResponsiveImage
+                    src={logo}
+                    alt="aidroo logo image"
+                    width={500}
+                    height={300}
+                  />
+                </Link>
+              </div>
             </div>
             {/* menu */}
 
@@ -212,39 +220,6 @@ export default function Header() {
                 <span> Help and Support</span>
               </div>
             </Accordion>
-
-            {/* <summary className="collapse-title text-xl font-medium border-b-2 ">
-              <div className="flex items-center gap-4">
-                <IconImage src={category} size={24} alt="icon" />
-                <span>Categories</span>
-              </div>
-            </summary>
-            <details className="collapse collapse-arrow rounded-none border-b-2 transform duration-500   ">
-              <summary className="collapse-title text-xl font-medium ">
-                <div className="flex items-center gap-4  ">
-                  <IconImage src={pageIcon} size={24} alt="icon" />
-                  <span>Pages</span>
-                </div>
-              </summary>
-              <ul className="collapse-content    ">
-                <li> Terms of service</li>
-                <li> Privacy Policy </li>
-                <li> Events</li>
-                <li>Blogs</li>
-              </ul>
-            </details>{" "}
-            <summary className="collapse-title text-xl font-medium border-b-2 ">
-              <div className="flex items-center gap-4">
-                <IconImage src={businessIcon} size={24} alt="icon" />
-                <span> Business Pricing Plan</span>
-              </div>
-            </summary>
-            <summary className="collapse-title text-xl font-medium border-b-2 ">
-              <div className="flex items-center gap-4">
-                <IconImage src={helpIcon} size={24} alt="icon" />
-                <span> Help and Support</span>
-              </div>
-            </summary> */}
           </div>
         </div>
       </div>

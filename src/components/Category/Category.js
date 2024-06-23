@@ -27,9 +27,9 @@ export default function Category() {
   const updateItemsPerSlide = () => {
     if (window.innerWidth >= 1008) {
       setItemsPerSlide(8);
-    } else if (window.innerWidth > 870) {
+    } else if (window.innerWidth > 600) {
       setItemsPerSlide(4);
-    } else if (window.innerWidth < 770) {
+    } else if (window.innerWidth < 600) {
       setItemsPerSlide(2);
     }
   };
@@ -70,7 +70,7 @@ export default function Category() {
     <div className="bg-light dark:bg-dark py-20">
       <div className="max-w-[1360px] mx-auto sm:px-8 flex items-center flex-col space-y-12">
         <h1
-          className={`text-center text-3xl text-gray-700 font-semibold   ${poppins.variable}`}
+          className={`text-center text-3xl  font-semibold   ${poppins.variable}`}
         >
           Browse Categories
         </h1>
