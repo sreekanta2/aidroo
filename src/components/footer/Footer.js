@@ -37,7 +37,7 @@ export default function Footer() {
   }, []);
 
   return (
-    <div className="patenBackgroundImage h-fit pt-14 bg-[#f3fcff] dark:bg-[#0f172a]">
+    <div className="patenBackgroundImage h-fit pt-14 bg-[#f3fcff] dark:bg-dark">
       <div className="max-w-[1280px] mx-auto px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           {footerLinks.length > 0 &&

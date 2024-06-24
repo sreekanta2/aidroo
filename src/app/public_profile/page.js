@@ -1,16 +1,23 @@
 "use client";
+import { AccordionComponent } from "@/components/Accordion/AccordionComponent";
 import IconImage from "@/components/IconImage/IconImage";
+import { GoogleMap } from "@/components/Map/Map";
 import PublicReview from "@/components/PublicReview/PublicReview";
 import Rating from "@/components/Rating/Rating";
 import ResponsiveImage from "@/components/ResponsiveImage/ResponsiveImage";
-
+import ThumbSlider from "@/components/ThumbSlider/ThumbSlider";
+import { Label } from "@/components/ui/label";
+import { Switch } from "@/components/ui/switch";
+import { businessOur, faqContent } from "@/constant";
 import claimedIcon from "@/public/icons/claimed.svg";
 import verifiedIcon from "@/public/icons/verified.svg";
 import profileImage from "@/public/images/profile.jpg";
 import { BsBagDash } from "react-icons/bs";
 import { CiCircleChevRight, CiShare2, CiStar } from "react-icons/ci";
 import { FaPhoneAlt, FaPlus } from "react-icons/fa";
+import { GrUserWorker } from "react-icons/gr";
 import { LiaSmsSolid } from "react-icons/lia";
+import { RiRefund2Fill } from "react-icons/ri";
 import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
 export default function PublicProfile() {
   return (
@@ -87,16 +94,85 @@ export default function PublicProfile() {
 
           <Tab className="w-full h-10 ring-[1px] rounded-md   flex gap-2 items-center justify-center text-primary cursor-default ">
             <CiCircleChevRight className=" text-24 " />
-            <span> Reviews</span>
+            <span> More</span>
           </Tab>
         </TabList>
         <div className=" max-w-[800px]  mx-auto grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8 ">
           <div className="col-span-3">
+            {/* review */}
             <TabPanel>
               <PublicReview />
             </TabPanel>
-            <TabPanel>
-              <h2>Any content 2</h2>
+            {/* job */}
+            <TabPanel className="space-y-8">
+              {/* carosual */}
+              <div className=" border-2 rounded-md p-10 mx-auto  ">
+                <ThumbSlider />
+              </div>
+              {/* business Our */}
+              <div className="border-2 rounded-md">
+                {businessOur.map((our) => (
+                  <div
+                    key={our.day}
+                    className="flex    place-content-center justify-between p-4  "
+                  >
+                    <h1 className="w-24">{our.day}</h1>
+                    <div className="flex items-center space-x-2 w-24">
+                      <Switch id={our.day} disabled={!our.open} />
+                      {our.open ? (
+                        <Label htmlFor={our.day}>Open</Label>
+                      ) : (
+                        <Label htmlFor={our.day}>Closed</Label>
+                      )}
+                    </div>
+
+                    <span>9.00 AM -10.00 PM</span>
+                  </div>
+                ))}
+              </div>
+              {/* FAQ */}
+              <div className="">
+                <h1 className="text-primary_color text-xl text-center pt-10 pb-2">
+                  Business Our
+                </h1>
+                <div className="border-2 p-10 rounded-md space-y-4">
+                  {faqContent.map((content) => (
+                    <AccordionComponent key={content.title} content={content} />
+                  ))}
+                </div>
+              </div>
+              {/* map */}
+              <div className="   h-[440px] w-full p-4 border-2 rounded-md">
+                <GoogleMap
+                  showMarker={false}
+                  className="h-[400px] w-full rounded-md"
+                />
+              </div>
+              <div className="border-2 rounded-md p-8 space-y-4">
+                <div className="flex items-center gap-6">
+                  <RiRefund2Fill className="text-5xl text-primary_color" />
+                  <div className="">
+                    <h1 className="text-xl text-primary_color">
+                      Total Fundings
+                    </h1>
+                    <p className="text-gray-500">10B -20B</p>
+                  </div>
+                </div>{" "}
+                <div className="flex items-center gap-6">
+                  <RiRefund2Fill className="text-5xl text-primary_color" />
+                  <div className="">
+                    <h1 className="text-xl text-primary_color">Investors</h1>
+                    <p className="text-gray-500">7</p>
+                  </div>
+                </div>{" "}
+                <div className="flex items-center gap-6">
+                  <GrUserWorker className="text-5xl text-primary_color" />
+                  <div className="">
+                    <h1 className="text-xl text-primary_color">Workers</h1>
+                    <p className="text-gray-500">100 - 200</p>
+                  </div>
+                </div>
+              </div>
             </TabPanel>
 
             <TabPanel>

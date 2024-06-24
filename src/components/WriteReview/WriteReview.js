@@ -40,7 +40,7 @@ export default function WriteReview() {
           </div>
         </div>
       </div>
-      <div lassName="grid grid-cols-3      ">
+      <div className="grid grid-cols-1 md:grid-cols-3   gap-4   ">
         <div className=" col-span-2 space-y-4">
           <div>
             <label>Title</label>
@@ -52,19 +52,19 @@ export default function WriteReview() {
           </div>
           <div></div>
         </div>
-        <div className="             col-span-1 space-y-4">
+        <div className=" col-span-1 space-y-4">
           <div>
             <label>Date of Experience</label>
             <DatePicker />
           </div>
           <label
-            for="uploadFile1"
-            class="  font-semibold text-base rounded p-4  flex flex-col items-center justify-center cursor-pointer border-2     mx-auto font-[sans-serif]"
+            htmlFor="uploadFile1"
+            className="  font-semibold text-base rounded p-4  flex flex-col items-center justify-center cursor-pointer border-2     mx-auto font-[sans-serif]"
           >
             <FaImage className="text-6xl text-primary_color" />
 
-            <input type="file" id="uploadFile1" class="hidden" />
-            <p class="text-xs font-medium text-gray-400 mt-2">
+            <input type="file" id="uploadFile1" className="hidden" />
+            <p className="text-xs font-medium text-gray-400 mt-2">
               Drag Image or Browse
             </p>
           </label>

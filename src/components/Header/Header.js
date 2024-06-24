@@ -70,7 +70,7 @@ export default function Header() {
                   type="text"
                   name="search"
                   placeholder="Search"
-                  className="bg-white dark:bg-[#0f172a] h-10"
+                  className="bg-white dark:bg-dark h-10"
                 />
 
                 <div className=" flex items-center justify-center  bg-primary_color p-1 rounded-md   cursor-pointer w-[3.7rem] ">
@@ -155,7 +155,7 @@ export default function Header() {
                 type="text"
                 name="search"
                 placeholder="Search"
-                className="bg-white dark:bg-[#0f172a]"
+                className="bg-white dark:bg-dark"
               />
 
               <div className=" flex items-center justify-center  bg-primary_color p-1 rounded-md   cursor-pointer w-[3.2rem] ">
@@ -169,7 +169,7 @@ export default function Header() {
         </div>
         {/* sidebar */}
         <div
-          className={`max-w-[300px] bg-white dark:bg-[#0f172a]  fixed top-0  z-30   h-screen block lg:hidden  ${menuLinksPosition}  transform duration-500`}
+          className={`max-w-[300px] bg-white dark:bg-dark  fixed top-0  z-30   h-screen block lg:hidden  ${menuLinksPosition}  transform duration-500`}
         >
           <div>
             <div className="w-full  flex justify-center items-center h-24 bg-[#234261]">

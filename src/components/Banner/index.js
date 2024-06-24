@@ -26,7 +26,7 @@ export default function Banner() {
                 type="text"
                 name="search"
                 placeholder="Search"
-                className="bg-white dark:bg-[#0f172a]"
+                className="bg-white dark:bg-dark"
               />
 
               <div className=" flex items-center justify-center  bg-primary_color p-1 rounded-md   cursor-pointer w-[3.2rem] ">

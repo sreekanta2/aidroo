@@ -59,12 +59,12 @@ export default function Category() {
   const prvDisabledColor =
     currentSlide === 0
       ? "bg-gray-600 ring-0 ring-offset-0"
-      : "hover:bg-primary_color dark:hover:bg-[#0f172a] ";
+      : "hover:bg-primary_color dark:hover:bg-dark ";
 
   const nextDisabledColor =
     totalSlides - 1 === currentSlide
       ? "bg-gray-600 ring-0 ring-offset-0"
-      : "hover:bg-primary_color dark:hover:bg-[#0f172a]";
+      : "hover:bg-primary_color dark:hover:bg-dark";
 
   return (
     <div className="bg-light dark:bg-dark py-20">
