@@ -88,8 +88,12 @@ export default function Header() {
             <div className="flex gap-8 col-span-1 ">
               {!currentUser ? (
                 <>
-                  <Button variant="primary">Login</Button>
-                  <Button variant="primary">Signup</Button>
+                  <Link href="/login">
+                    <Button variant="primary">Login</Button>
+                  </Link>
+                  <Link href="/signup">
+                    <Button variant="primary">Signup</Button>
+                  </Link>
                 </>
               ) : (
                 <>

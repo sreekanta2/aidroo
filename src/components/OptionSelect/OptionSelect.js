@@ -11,7 +11,7 @@ import {
 export default function OptionSelect() {
   return (
     <Select>
-      <SelectTrigger className="w-[180px]">
+      <SelectTrigger className="w-full bg-white dark:bg-gray-800  h-12">
         <SelectValue placeholder="Aidroo sort" />
       </SelectTrigger>
       <SelectContent>
