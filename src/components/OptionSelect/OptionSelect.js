@@ -3,24 +3,24 @@ import {
   SelectContent,
   SelectGroup,
   SelectItem,
-  SelectLabel,
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
 
-export default function OptionSelect() {
+export default function OptionSelect({ label = "", options = [] }) {
+  console.log(options);
   return (
     <Select>
       <SelectTrigger className="w-full bg-white dark:bg-gray-800  h-12">
-        <SelectValue placeholder="Aidroo sort" />
+        <SelectValue placeholder={label} />
       </SelectTrigger>
       <SelectContent>
         <SelectGroup>
-          <SelectLabel>Fruits</SelectLabel>
-          <SelectItem value="recent">Most Recent</SelectItem>
-          <SelectItem value="relevant">Relevant</SelectItem>
-          <SelectItem value="verified">Verified</SelectItem>
-          <SelectItem value="toprated">Top Rated</SelectItem>
+          {options.map((option) => (
+            <SelectItem key={option.value} value={option.value}>
+              {option.label}
+            </SelectItem>
+          ))}
         </SelectGroup>
       </SelectContent>
     </Select>

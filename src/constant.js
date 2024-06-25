@@ -220,3 +220,22 @@ export const faqContent = [
     description: " 9.00 AM - 10.00 PM",
   },
 ];
+export const businessSidebarOptions = [
+  {
+    name: "Business info",
+    href: "/business_dashboard/business_info",
+  },
+
+  {
+    name: "Schedule & Photos",
+    href: "/business_dashboard/schedule",
+  },
+  {
+    name: "Security",
+    href: "/business_dashboard/security",
+  },
+  {
+    name: "Business Plan",
+    href: "/business_dashboard/business_plan",
+  },
+];

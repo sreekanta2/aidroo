@@ -89,10 +89,10 @@ export default function Header() {
               {!currentUser ? (
                 <>
                   <Link href="/login">
-                    <Button variant="primary">Login</Button>
+                    <Button variant="hover">Login</Button>
                   </Link>
                   <Link href="/signup">
-                    <Button variant="primary">Signup</Button>
+                    <Button variant="hover">Signup</Button>
                   </Link>
                 </>
               ) : (

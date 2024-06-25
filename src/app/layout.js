@@ -1,5 +1,3 @@
-import Header from "@/components/Header/Header";
-import Footer from "@/components/footer/Footer";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Roboto } from "next/font/google";
 import "./globals.css";
@@ -24,11 +22,7 @@ export default function RootLayout({ children }) {
           themes={["light", "dark"]}
           disableTransitionOnChange
         >
-          <main className="w-full ">
-            <Header />
-            {children}
-            <Footer />
-          </main>
+          <main className="w-full ">{children}</main>
         </ThemeProvider>
       </body>
     </html>

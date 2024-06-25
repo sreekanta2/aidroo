@@ -71,7 +71,7 @@ export default function WriteReview() {
         </div>
       </div>
       <div className="  flex justify-center items-center">
-        <Button variant="primary">Submit</Button>
+        <Button variant="hover">Submit</Button>
       </div>
     </form>
   );

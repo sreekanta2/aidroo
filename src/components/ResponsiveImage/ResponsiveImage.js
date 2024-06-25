@@ -8,7 +8,7 @@ const ResponsiveImage = ({
   height,
 }) => {
   return (
-    <div className="relative w-full  ">
+    <div className="relative w-full ">
       <Image
         src={src}
         alt={alt}

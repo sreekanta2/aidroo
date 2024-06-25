@@ -9,9 +9,9 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        fillButton: " w-full bg-primary_color ",
-        primary:
-          "bg-white text-gray-600 shadow hover:bg-primary_color hover:text-white",
+        fillButton: " w-full bg-primary_color text-white ",
+        hover:
+          " w-full bg-white text-gray-600 border shadow hover:bg-primary_color hover:text-white",
         default:
           "bg-primary text-primary-foreground shadow hover:bg-primary/90",
         destructive:
