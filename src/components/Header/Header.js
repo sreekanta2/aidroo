@@ -10,6 +10,7 @@ import helpIcon from "@/asserts/mobile-icons/support.svg";
 import search from "@/asserts/search.svg";
 import messageIcon from "@/public/icons/messages.svg";
 import notificationIcon from "@/public/icons/notifications.svg";
+import profilePic from "@/public/images/profile.jpg";
 import Image from "next/image";
 
 import Link from "next/link";
@@ -27,8 +28,10 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "../ui/accordion";
+import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
 import { Button } from "../ui/button";
 import { Input } from "../ui/input";
+import { Popover, PopoverContent, PopoverTrigger } from "../ui/popover";
 export default function Header() {
   const [searchText, setSearchText] = useState("");
   const [open, setOpen] = useState(false);
@@ -82,10 +85,18 @@ export default function Header() {
               </form>
             </div>
             <div className="col-span-2 mx-auto flex justify-between items-center gap-10">
-              <h1 className="text-gray-200 ">Aidroo for Business</h1>
+              <Popover>
+                <PopoverTrigger className="text-white">
+                  Aidroo for Business
+                </PopoverTrigger>
+                <PopoverContent className="mt-7 flex flex-col gap-4">
+                  Please provide your information
+                </PopoverContent>
+              </Popover>
+
               <ThemeToggle />
             </div>
-            <div className="flex gap-8 col-span-1 ">
+            <div className="flex gap-8 col-span-1 items-center ">
               {!currentUser ? (
                 <>
                   <Link href="/login">
@@ -103,6 +114,23 @@ export default function Header() {
                     size={28}
                     alt="message icon"
                   />
+                  <Popover>
+                    <PopoverTrigger>
+                      <Avatar>
+                        <AvatarImage src={profilePic} alt="@shadcn" />
+                        <AvatarFallback>CN</AvatarFallback>
+                      </Avatar>
+                    </PopoverTrigger>
+                    <PopoverContent className=" flex flex-col gap-4 mt-5">
+                      <Link href="/public_profile">Public Profile</Link>
+                      <Link href="/login">login</Link>
+                      <Link href="/signup">signup</Link>
+                      <Link href="/business_dashboard/business_info">
+                        Business Dashboard
+                      </Link>
+                      <Link href="">Public Profile</Link>
+                    </PopoverContent>
+                  </Popover>
                 </>
               )}
             </div>
@@ -224,6 +252,18 @@ export default function Header() {
                 <span> Help and Support</span>
               </div>
             </Accordion>
+            <Popover>
+              <PopoverTrigger>Aidroo for Business</PopoverTrigger>
+              <PopoverContent className="mt-6 flex flex-col gap-4">
+                <Link href="/public_profile">Public Profile</Link>
+                <Link href="/login">login</Link>
+                <Link href="/signup">login</Link>
+                <Link href="/business_dashboard/business_info">
+                  Business Dashboard
+                </Link>
+                <Link href="">Public Profile</Link>
+              </PopoverContent>
+            </Popover>
           </div>
         </div>
       </div>

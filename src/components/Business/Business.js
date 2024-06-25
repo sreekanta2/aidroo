@@ -1,6 +1,7 @@
 import heroImage from "@/asserts/business-image.svg";
 
 import Image from "next/image";
+import { Button } from "../ui/button";
 
 const Business = () => {
   return (
@@ -54,18 +55,12 @@ const Business = () => {
               </p>
             </div>
             <div className="mt-8 flex  justify-between space-x-4">
-              <a
-                href="#"
-                className="bg-blue-600 text-white px-4 py-2 rounded-lg"
-              >
+              <Button variant="fillButton" size="lg">
                 See Our Pricing
-              </a>
-              <a
-                href="#"
-                className="bg-blue-100 text-blue-600 px-4 py-2 rounded-lg border border-blue-600"
-              >
-                Submit Listing
-              </a>
+              </Button>
+              <Button variant="hover" size="lg">
+                See Our Pricing
+              </Button>
             </div>
           </div>
         </div>

@@ -3,8 +3,8 @@ import Rating from "@/components/Rating/Rating";
 
 import { Progress } from "@/components/ui/progress";
 
+import { options } from "@/constant";
 import topplacementBadge from "@/public/icons/topplacement.svg";
-import userIcon from "@/public/icons/user.svg";
 import OptionSelect from "../OptionSelect/OptionSelect";
 import PaginationComponent from "../Pagination/PaginationComponent";
 import ReviewCard from "../ReviewCard/ReviewCard";
@@ -12,14 +12,6 @@ import WriteReview from "../WriteReview/WriteReview";
 export default function PublicReview() {
   return (
     <div className="col-span-1 space-y-6">
-      <div className="w-full border-2   rounded-md p-4 text-32 flex justify-between items-center">
-        <IconImage src={userIcon} size={40} alt="user" />
-
-        <h1 className="text-primary">Write Review</h1>
-        <div className="flex gap-1">
-          <Rating isEditable />
-        </div>
-      </div>
       {/* write review  */}
       <WriteReview />
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 border-2 rounded-md p-4">
@@ -43,9 +35,9 @@ export default function PublicReview() {
         </div>
       </div>
       {/* filter */}
-      <div className="flex justify-between px-4">
-        <OptionSelect />
-        <OptionSelect />
+      <div className="flex justify-between px-4 gap-8">
+        <OptionSelect label="country" options={options} />
+        <OptionSelect label="country" options={options} />
       </div>
       {/* reviews card */}
       <ReviewCard />

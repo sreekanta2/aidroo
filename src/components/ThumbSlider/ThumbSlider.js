@@ -52,7 +52,7 @@ export default function ThumbSlider() {
       >
         {number.map((idex) => (
           <SwiperSlide key={idex}>
-            <div>
+            <div className="h-16">
               <ResponsiveImage
                 src={`https://swiperjs.com/demos/images/nature-${idex}.jpg`}
                 width={500}

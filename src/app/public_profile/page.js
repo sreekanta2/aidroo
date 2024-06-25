@@ -7,23 +7,25 @@ import PublicReview from "@/components/PublicReview/PublicReview";
 import Rating from "@/components/Rating/Rating";
 import ResponsiveImage from "@/components/ResponsiveImage/ResponsiveImage";
 import ThumbSlider from "@/components/ThumbSlider/ThumbSlider";
-import { Label } from "@/components/ui/label";
 import { Switch } from "@/components/ui/switch";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { businessOur, faqContent } from "@/constant";
 import claimedIcon from "@/public/icons/claimed.svg";
 import verifiedIcon from "@/public/icons/verified.svg";
 import profileImage from "@/public/images/profile.jpg";
+import { Label } from "@radix-ui/react-dropdown-menu";
+
 import { BsBagDash } from "react-icons/bs";
 import { CiCircleChevRight, CiShare2, CiStar } from "react-icons/ci";
 import { FaPhoneAlt, FaPlus } from "react-icons/fa";
 import { GrUserWorker } from "react-icons/gr";
 import { LiaSmsSolid } from "react-icons/lia";
 import { RiRefund2Fill } from "react-icons/ri";
-import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
+
 export default function PublicProfile() {
   return (
     <Layout title="Public Profile">
-      <div className="w-full  ">
+      <div className="w-full space-y-6  pb-14 ">
         <div className="w-full bg-[#f5fafc] dark:bg-dark">
           <div className="max-w-[1280px] mx-auto">
             <div className="grid w-full lg:w-2/3  mx-auto grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-4 py-8 ">
@@ -79,35 +81,28 @@ export default function PublicProfile() {
           </div>
         </div>
 
-        <Tabs
-          className=" my-14 px-2 space-y-10"
-          selectedTabClassName="bg-primary_color dark:bg-[#1f2937] text-white ring-1"
-        >
-          <TabList className=" max-w-[700px] mx-auto  flex justify-center items-center p-3 gap-2 md:gap-8 border-2 rounded-md  ">
-            <Tab className="ring-[1px] w-full h-10   flex gap-2 items-center justify-center text-primary cursor-default rounded-md">
+        <Tabs defaultValue="review" className="max-w-[1280px] mx-auto px-8 ">
+          <TabsList className="grid w-full md:w-2/4 grid-cols-3 h-12 mx-auto">
+            <TabsTrigger value="review" className="h-10 flex gap-4 text-xl">
               <CiStar className="text-24   " />
               <span> Reviews</span>
-            </Tab>
-
-            <Tab className="w-full h-10 ring-[1px] group   flex gap-2 items-center justify-center    rounded-md overflow-hidden text-primary cursor-default">
+            </TabsTrigger>
+            <TabsTrigger value="job" className="h-10 flex gap-4 text-xl">
               <BsBagDash className=" text-24 " />
               <span> Jobs</span>
-            </Tab>
-
-            <Tab className="w-full h-10 ring-[1px] rounded-md   flex gap-2 items-center justify-center text-primary cursor-default ">
+            </TabsTrigger>
+            <TabsTrigger value="more" className="h-10 flex gap-4 text-xl">
               <CiCircleChevRight className=" text-24 " />
               <span> More</span>
-            </Tab>
-          </TabList>
-          <div className=" max-w-[800px]  mx-auto grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8 ">
+            </TabsTrigger>
+          </TabsList>
+          {/* review  tab content  */}
+          <div className=" max-w-[800px]  mx-auto grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8 space-y-6 ">
             <div className="col-span-3">
-              {/* review */}
-              <TabPanel>
+              <TabsContent value="review">
                 <PublicReview />
-              </TabPanel>
-              {/* job */}
-              <TabPanel className="space-y-8">
-                {/* carosual */}
+              </TabsContent>
+              <TabsContent value="job" className="space-y-8">
                 <div className=" border-2 rounded-md p-10 mx-auto  ">
                   <ThumbSlider />
                 </div>
@@ -178,11 +173,10 @@ export default function PublicProfile() {
                     </div>
                   </div>
                 </div>
-              </TabPanel>
-
-              <TabPanel>
+              </TabsContent>{" "}
+              <TabsContent value="more">
                 <h2>Any content 3</h2>
-              </TabPanel>
+              </TabsContent>
             </div>
             <div className="col-span-1">
               <div className="w-full border-2 border-gray-400">content</div>

@@ -1,15 +1,15 @@
-"use client";
 import logo from "@/asserts/aidroo-logo.svg";
+
 import Layout from "@/components/Layout/Layout";
 import OptionSelect from "@/components/OptionSelect/OptionSelect";
 import ResponsiveImage from "@/components/ResponsiveImage/ResponsiveImage";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { options } from "@/constant";
 import Link from "next/link";
-
 import { BsBagDash } from "react-icons/bs";
 import { FaRegUser } from "react-icons/fa";
-import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
 
 export default function Signup() {
   return (
@@ -27,21 +27,22 @@ export default function Signup() {
             </Link>
           </div>
           <h1 className="text-2xl text-center">Welcome to Aidroo</h1>
+
           <Tabs
-            className=" my-14   space-y-10"
-            selectedTabClassName="bg-primary_color dark:bg-[#1f2937] text-white ring-1"
+            defaultValue="personal"
+            className="w-full md:h-screen place-content-center "
           >
-            <TabList className="   flex justify-center items-center   gap-2 md:gap-8   rounded-md  ">
-              <Tab className="ring-[1px] w-full h-10   dark:bg-dark   flex gap-2 items-center justify-center text-primary cursor-default rounded-md">
+            <TabsList className="grid w-full grid-cols-2 pb-2 h-12">
+              <TabsTrigger value="personal" className="flex gap-2 h-10  ">
                 <FaRegUser className="text-24   " />
                 <span> Personal</span>
-              </Tab>
-              <Tab className="ring-[1px] w-full h-10   flex gap-2 items-center justify-center text-primary cursor-default rounded-md">
-                <BsBagDash className="text-24" />
+              </TabsTrigger>
+              <TabsTrigger value="business" className="flex gap-2 h-10">
+                <BsBagDash className="text-24   " />
                 <span> Business</span>
-              </Tab>
-            </TabList>
-            <TabPanel>
+              </TabsTrigger>
+            </TabsList>
+            <TabsContent value="personal" className="md:h-screen">
               <form className="space-y-6">
                 <div className=" grid grid-cols-1 md:grid-cols-2 gap-4">
                   <Input
@@ -78,8 +79,8 @@ export default function Signup() {
                   />
                 </div>
                 <div className=" grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <OptionSelect />
-                  <OptionSelect />
+                  <OptionSelect label="country" options={options} />
+                  <OptionSelect label="country" options={options} />
                 </div>
                 <div className=" grid grid-cols-1 md:grid-cols-2 gap-4">
                   <Input
@@ -105,8 +106,8 @@ export default function Signup() {
                   <span className="text-2xl text-primary_color"> Facebook</span>
                 </h1>
               </div>
-            </TabPanel>
-            <TabPanel>
+            </TabsContent>
+            <TabsContent value="business" className="md:h-screen">
               <form className="space-y-6">
                 <Input
                   type="text"
@@ -127,8 +128,8 @@ export default function Signup() {
                 </div>
 
                 <div className=" grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <OptionSelect />
-                  <OptionSelect />
+                  <OptionSelect label="country" options={options} />
+                  <OptionSelect label="country" options={options} />
                 </div>
                 <div className=" grid grid-cols-1 md:grid-cols-2 gap-4">
                   <Input
@@ -143,8 +144,8 @@ export default function Signup() {
                   />
                 </div>
                 <div className=" grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <OptionSelect />
-                  <OptionSelect />
+                  <OptionSelect label="country" options={options} />
+                  <OptionSelect label="country" options={options} />
                 </div>
                 <div className=" grid grid-cols-1 md:grid-cols-2 gap-4">
                   <Input
@@ -168,7 +169,7 @@ export default function Signup() {
                   <span className="text-2xl text-primary_color"> Login</span>
                 </h1>
               </div>
-            </TabPanel>
+            </TabsContent>
           </Tabs>
         </div>
       </div>
