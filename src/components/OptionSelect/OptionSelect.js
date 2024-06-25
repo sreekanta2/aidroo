@@ -7,10 +7,9 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 
-export default function OptionSelect({ label = "", options = [] }) {
-  console.log(options);
+export default function OptionSelect({ className, label = "", options = [] }) {
   return (
-    <Select>
+    <Select className={className}>
       <SelectTrigger className="w-full bg-white dark:bg-gray-800  h-12">
         <SelectValue placeholder={label} />
       </SelectTrigger>

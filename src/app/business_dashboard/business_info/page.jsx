@@ -3,28 +3,10 @@ import ResponsiveImage from "@/components/ResponsiveImage/ResponsiveImage";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { options } from "@/constant";
 import profileImage from "@/public/images/profile.jpg";
 
 export default function BusinessInfo() {
-  const options = [
-    {
-      value: "recent",
-      label: "Most Recent",
-    },
-    {
-      value: "relevant",
-      label: "Relevant",
-    },
-    {
-      value: "verified",
-      label: "Verified",
-    },
-    {
-      value: "toprated",
-      label: "Top Rated",
-    },
-  ];
-
   return (
     <div className="border  rounded-lg p-10 space-y-6">
       <div className="flex gap-10 items-center h-fit">

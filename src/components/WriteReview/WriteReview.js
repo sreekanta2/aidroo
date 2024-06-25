@@ -50,7 +50,6 @@ export default function WriteReview() {
             <label className="pb-2">Full Review</label>
             <Textarea placeholder="Type your message here." />
           </div>
-          <div></div>
         </div>
         <div className=" col-span-1 space-y-4">
           <div>
